@@ -15,6 +15,13 @@ int getInt(int *);
 void erase(Matrix *a);
 int input(Matrix *a);
 void output(Matrix a);
+Matrix newmatr(int i, Matrix *a);
+
+Matrix newmatr(int i, Matrix *a){
+
+
+
+}
 
 int getInt(int *a){
 	int n;
@@ -64,10 +71,27 @@ int input(Matrix *matr){
 	return 1;
 }
 
+void erase(Matrix *a){
+	int i;
+	for(i = 0; i < a->lines; i++){
+		free(a->matr[i].a);
+		free(a->matr);
+		a->lines = 0;
+		a->matr = NULL;
+}
+
 
 int main(){
 	Matrix matr = {0, NULL};
 	if(input(&matr) == 0){
-		printf
+		printf("End of file occured\n");
+		return 1;
 	}
+	res = newmatr(i, matr);
+	printf("Source matrix:\n);
+	output(matr);
+	printf("\n");
+	printf("New matrix:\n");
+	output(res);
+	return 0;
 }
