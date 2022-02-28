@@ -38,7 +38,7 @@ int getInt(int *a){
 }
 
 int input(Matrix *matr){
-	int m, i, j, q; // q-тую строку изменить
+	int m, i, j, q; // q-ГІГіГѕ Г±ГІГ°Г®ГЄГі ГЁГ§Г¬ГҐГ­ГЁГІГј
 	int *val;
 	do{
 		printf("Enter number of lines: \n");
@@ -68,7 +68,7 @@ int input(Matrix *matr){
 			}
 		}
 	}
-	printf("Enter number of line which neededto change:\n");
+	printf("Enter number of line which needed to change:\n");
 	if(getInt(&q) == 0){
 		return 0;
 	return 1;
