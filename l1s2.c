@@ -1,15 +1,15 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct Line {
+typedef struct Line {
 	int n;
 	int *a;
-};
+}Line;
 
-struct Matrix {
+typedef struct Matrix {
 	int lines;
 	Line *matr;
-};
+}Matrix;
 
 int getInt(int *);
 void erase(Matrix *a);
