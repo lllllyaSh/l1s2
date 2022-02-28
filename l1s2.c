@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-typedef struct Line {
+typedef struct Line{
 	int n;
 	int *a;
 }Line;
@@ -38,7 +38,7 @@ int getInt(int *a){
 }
 
 int input(Matrix *matr){
-	int m, i, j;
+	int m, i, j, q; // q-тую строку изменить
 	int *val;
 	do{
 		printf("Enter number of lines: \n");
@@ -60,7 +60,7 @@ int input(Matrix *matr){
 		val = (int *)malloc(sizeof(int) * m);
 		matr->matr[i].a = val;
 		printf("Enter values in %d line:\n", i + 1);
-		for(j = 0; j < m; ++j, ++p){
+		for(j = 0; j < m; ++j, ++val){
 			if(getInt(val) == 0){
 				matr->lines = i + 1;
 				erase(matr);
@@ -68,6 +68,9 @@ int input(Matrix *matr){
 			}
 		}
 	}
+	printf("Enter number of line which neededto change:\n");
+	if(getInt(&q) == 0){
+		return 0;
 	return 1;
 }
 
@@ -78,6 +81,7 @@ void erase(Matrix *a){
 		free(a->matr);
 		a->lines = 0;
 		a->matr = NULL;
+	}
 }
 
 
@@ -87,11 +91,11 @@ int main(){
 		printf("End of file occured\n");
 		return 1;
 	}
-	res = newmatr(i, matr);
-	printf("Source matrix:\n);
+	//res = newmatr(i, matr);
+	printf("Source matrix:\n");
 	output(matr);
 	printf("\n");
 	printf("New matrix:\n");
-	output(res);
+	//output(res);
 	return 0;
 }
