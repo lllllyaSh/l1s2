@@ -15,12 +15,34 @@ int getInt(int *);
 void erase(Matrix *a);
 int input(Matrix *a);
 void output(Matrix a);
-Matrix newmatr(int i, Matrix *a);
+void newmatr(int i, Matrix *a);
 
-Matrix newmatr(int i, Matrix *a){
-
-
-
+void newmatr(int line, Matrix *a){
+	int *newline;
+	int newlen = 1, i, j;
+	newline = (int *)malloc(newlen * sizeof(int));
+	for(i = 0; i < a->matr[line].n; ++i){
+		int NumOfIn = 0;
+		int was = 0;
+		for(j = 0; j < a->matr[line].n; ++j){
+			if((a->matr+line)->a[i] == (a->matr+line)->a[j])
+				NumOfIn++;
+		}
+		if(NumOfIn > 1){
+			if(was = 0){
+				was = 1;
+			}
+			else{
+				newlen++;
+			}
+			newline = (int *)realloc(newline, newlen* sizeof(int));
+			newline[newlen--] = (a->matr+line)->a[i];
+		}
+	}
+	for(i = 0; i < newlen; i++){
+		printf("%d ", newline[i]);
+	}
+	return;
 }
 
 int getInt(int *a){
@@ -38,7 +60,7 @@ int getInt(int *a){
 }
 
 int input(Matrix *matr){
-	int m, i, j, q; // q-òóþ ñòðîêó èçìåíèòü
+	int m, i, j;
 	int *val;
 	do{
 		printf("Enter number of lines: \n");
@@ -68,9 +90,6 @@ int input(Matrix *matr){
 			}
 		}
 	}
-	printf("Enter number of line which needed to change:\n");
-	if(getInt(&q) == 0){
-		return 0;
 	return 1;
 }
 
@@ -87,15 +106,20 @@ void erase(Matrix *a){
 
 int main(){
 	Matrix matr = {0, NULL};
+	int i;
 	if(input(&matr) == 0){
 		printf("End of file occured\n");
 		return 1;
 	}
-	//res = newmatr(i, matr);
+	printf("Enter number of line which neededto change:\n");
+	if(getInt(&i) == 0)
+		return 1;
+	newmatr(i - 1, &matr);
 	printf("Source matrix:\n");
-	output(matr);
-	printf("\n");
-	printf("New matrix:\n");
+	//output(matr);
+	//printf("\n");
+	//printf("New matrix:\n");
 	//output(res);
+	system("pause");
 	return 0;
 }
