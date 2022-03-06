@@ -29,19 +29,13 @@ void newmatr(int line, Matrix *a) {
 			}
 		}
 		if (WasNum > 1) {
-			//printf("a%d ", (a->matr + line)->a[i]);
 			newline[q] = (a->matr + line)->a[i];
 			q++;
 		}
 	}
 	newlen = q;
 	for (i = 0; i < newlen; ++i) {
-		printf("x%d ", newline[i]);
-	}
-	int* cpy = (int*)malloc(newlen * sizeof(int));
-	memcpy(cpy, newline, newlen);
-	for (i = 0; i < newlen; ++i) {
-		printf("x%d ", cpy[i]);
+		printf("%d ", newline[i]);
 	}
 }
 
